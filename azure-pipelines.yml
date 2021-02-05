@@ -35,3 +35,8 @@ steps:
     downloadType: 'single'
     artifactName: 'myWebsiteName'
     downloadPath: '$(System.ArtifactsDirectory)'
+- task: DownloadPipelineArtifact@2
+  inputs:
+    buildType: 'current'
+    artifactName: 'myWebsiteName'
+    targetPath: '$(Pipeline.Workspace)'
