@@ -21,23 +21,23 @@ steps:
     publishWebProjects: True
     arguments: '--configuration $(BuildConfiguration) --output $(Build.ArtifactStagingDirectory)'
     zipAfterPublish: True
-- task: PublishBuildArtifacts@1
-  inputs:
-    pathtoPublish: '$(Build.ArtifactStagingDirectory)' 
-    artifactName: 'myWebsiteName'
-#- task: PublishPipelineArtifact@1
+#- task: PublishBuildArtifacts@1
 #  inputs:
-#    targetPath: '$(Pipeline.Workspace)'
-#    artifact: 'myWebsiteName1'
-#    publishLocation: 'pipeline'
-- task: DownloadBuildArtifacts@0
+#    pathtoPublish: '$(Build.ArtifactStagingDirectory)' 
+#    artifactName: 'myWebsiteName'
+- task: PublishPipelineArtifact@1
   inputs:
-    buildType: 'current'
-    downloadType: 'single'
-    artifactName: 'myWebsiteName'
-    downloadPath: '$(System.ArtifactsDirectory)'
-#- task: DownloadPipelineArtifact@2
+    targetPath: '$(Pipeline.Workspace)'
+    artifact: 'myWebsiteName1'
+    publishLocation: 'pipeline'
+#- task: DownloadBuildArtifacts@0
 #  inputs:
 #    buildType: 'current'
-#    artifactName: 'myWebsiteName1'
-#    targetPath: '$(Pipeline.Workspace)'
+#    downloadType: 'single'
+#    artifactName: 'myWebsiteName'
+#    downloadPath: '$(System.ArtifactsDirectory)'
+- task: DownloadPipelineArtifact@2
+  inputs:
+    buildType: 'current'
+    artifactName: 'myWebsiteName1'
+    targetPath: '$(Pipeline.Workspace)'
