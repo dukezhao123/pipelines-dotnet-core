@@ -28,7 +28,7 @@ steps:
 - task: PublishPipelineArtifact@1
   inputs:
     targetPath: '$(Pipeline.Workspace)'
-    artifact: 'myWebsiteName'
+    artifact: 'myWebsiteName1'
     publishLocation: 'pipeline'
 - task: DownloadBuildArtifacts@0
   inputs:
@@ -39,5 +39,5 @@ steps:
 - task: DownloadPipelineArtifact@2
   inputs:
     buildType: 'current'
-    artifactName: 'myWebsiteName'
+    artifactName: 'myWebsiteName1'
     targetPath: '$(Pipeline.Workspace)'
