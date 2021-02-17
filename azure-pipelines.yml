@@ -25,19 +25,19 @@ steps:
   inputs:
     pathtoPublish: '$(Build.ArtifactStagingDirectory)' 
     artifactName: 'myWebsiteName'
-- task: PublishPipelineArtifact@1
-  inputs:
-    targetPath: '$(Pipeline.Workspace)'
-    artifact: 'myWebsiteName1'
-    publishLocation: 'pipeline'
+#- task: PublishPipelineArtifact@1
+#  inputs:
+#    targetPath: '$(Pipeline.Workspace)'
+#    artifact: 'myWebsiteName1'
+#    publishLocation: 'pipeline'
 - task: DownloadBuildArtifacts@0
   inputs:
     buildType: 'current'
     downloadType: 'single'
     artifactName: 'myWebsiteName'
     downloadPath: '$(System.ArtifactsDirectory)'
-- task: DownloadPipelineArtifact@2
-  inputs:
-    buildType: 'current'
-    artifactName: 'myWebsiteName1'
-    targetPath: '$(Pipeline.Workspace)'
+#- task: DownloadPipelineArtifact@2
+#  inputs:
+#    buildType: 'current'
+#    artifactName: 'myWebsiteName1'
+#    targetPath: '$(Pipeline.Workspace)'
