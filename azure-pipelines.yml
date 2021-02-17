@@ -3,11 +3,7 @@
 # Add steps that run tests, create a NuGet package, deploy, and more:
 # https://docs.microsoft.com/azure/devops/pipelines/languages/dotnet-core
 
-trigger:
-- main
-
-pool:
-  vmImage: 'ubuntu-latest'
+pool: 'default'
 
 variables:
   buildConfiguration: 'Release'
@@ -29,6 +25,11 @@ steps:
   inputs:
     pathtoPublish: '$(Build.ArtifactStagingDirectory)' 
     artifactName: 'myWebsiteName'
+- task: PublishPipelineArtifact@1
+  inputs:
+    targetPath: '$(Pipeline.Workspace)'
+    artifact: 'myWebsiteName'
+    publishLocation: 'pipeline'
 - task: DownloadBuildArtifacts@0
   inputs:
     buildType: 'current'
