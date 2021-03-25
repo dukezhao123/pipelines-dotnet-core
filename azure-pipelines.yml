@@ -4,8 +4,8 @@
 # Add steps that run tests, create a NuGet package, deploy, and more:
 # https://docs.microsoft.com/azure/devops/pipelines/languages/dotnet-core
 
-pool: 'default'
-
+pool:
+  vmImage: ubuntu-16.04
 variables:
   buildConfiguration: 'Release'
 
